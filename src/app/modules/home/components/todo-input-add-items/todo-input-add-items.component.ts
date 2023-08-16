@@ -13,10 +13,22 @@ export class TodoInputAddItemsComponent {
   constructor() {}
 
   exportTask(event: KeyboardEvent): void {
-    if(event.key == 'Enter') {
-      this.exportNewTask.emit({name: this.newTaskName, status: false});
+    if((event.key == 'Enter') && (this.verifyTaskName())) {
+      this.exportNewTask.emit(
+        {
+          name: this.newTaskName.trim(), 
+          status: false
+        }
+      );
       this.clearNewTaskName();
     }
+  }
+
+  verifyTaskName(): boolean {
+    if (this.newTaskName !== '') {
+      return true;
+    }
+    return false;
   }
 
   clearNewTaskName(): string { return this.newTaskName = ''; }

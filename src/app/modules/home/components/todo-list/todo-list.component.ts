@@ -13,14 +13,12 @@ export class TodoListComponent {
     this.taskList = [];
   }
 
-  setNewTask(event: Task): void {
-    this.taskList.push(event);
-  }
+  setNewTask(event: Task): void { this.taskList.push(event); }
 
   deleteTask(i: number): void { this.taskList.splice(i, 1); }
 
   deleteAllTasks(): Task[] {
-    let confirm = window.confirm('Deseja apagar todas as terefas?');
+    const confirm = window.confirm('Deseja apagar todas as terefas?');
     if (confirm) {
       return this.taskList=[];
     } else {

@@ -17,8 +17,14 @@ export class TodoListComponent {
     this.taskList.push(event);
   }
 
-  deleteTask(i: number): void {
-    this.taskList.splice(i, 1);
-    // console.log(this.taskList)
+  deleteTask(i: number): void { this.taskList.splice(i, 1); }
+
+  deleteAllTasks(): Task[] {
+    let confirm = window.confirm('Deseja apagar todas as terefas?');
+    if (confirm) {
+      return this.taskList=[];
+    } else {
+      return this.taskList;
+    }
   }
 }

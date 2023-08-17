@@ -2,12 +2,11 @@
     <ul *ngIf="taskList.length">
         <li *ngFor="let task of taskList; let i = index;">
             <input type="checkbox" [(ngModel)]="task.status">
-            <input type="text" [(ngModel)]="task.name" [ngClass]="{'checked': task.status}">
+            <input type="text" (keyup)="validationInput(task.name, i)" [(ngModel)]="task.name" [ngClass]="{'checked': task.status}">
 
             <button (click)="deleteTask(i)">
                 <img src="../../../../../assets/icons/icon-trash.svg" alt="apagar tarefa">
             </button>
-            {{task | json}}
         </li>
     </ul>
 </section>

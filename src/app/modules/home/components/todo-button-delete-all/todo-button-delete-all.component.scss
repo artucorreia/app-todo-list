@@ -17,5 +17,11 @@
 
     width: 60%;
     padding: 10px;
+
+    transition-duration: 0.4s;
+  }
+
+  button:hover {
+    background-color: $danger-color-effect;
   }
 }
